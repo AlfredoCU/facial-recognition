@@ -1,3 +1,4 @@
+import json
 import face_recognition
 
 
@@ -12,6 +13,6 @@ def facial_recognition(face_image, id_card_image):
         results = face_recognition.compare_faces(
             [user_encoding], unknown_encoding)
 
-        return results[0]
+        return {"response": json.dumps(bool(results[0]))}
     except Exception:
-        return "Error al procesar las imágenes"
+        return {"error": "Error al procesar las imágenes"}

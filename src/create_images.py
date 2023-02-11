@@ -17,4 +17,4 @@ def create_images(face_image_base64, id_card_image_base64):
         face_image.save("images/face_image.png")
         id_card_image.save("images/id_card_image.png")
     except Exception:
-        return "Error al crear las imágenes"
+        print("Error al crear las imágenes")
