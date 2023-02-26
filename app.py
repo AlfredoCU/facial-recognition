@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 
 from src.create_images import create_images
+from src.delete_images import delete_images
 from src.facial_recognition import facial_recognition
 
 app = Flask(__name__)
@@ -16,6 +17,8 @@ def user_recognition():
 
         result = facial_recognition(
             "images/face_image.png", "images/id_card_image.png")
+
+        delete_images("images/face_image.png", "images/id_card_image.png")
 
         return jsonify(result)
     except Exception:
