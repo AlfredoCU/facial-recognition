@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 from src.create_images import create_images
 from src.delete_images import delete_images
 from src.facial_recognition import facial_recognition
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/user-recognition', methods=["POST"])
